@@ -4,7 +4,7 @@ import './globals.css'
 import { Providers } from '@/providers/providers'
 
 export const metadata: Metadata = {
-  title: 'Zinc GPT',
+  title: 'Zinc AI',
   description: 'Shop any retailer by chat',
 }
 

@@ -1,4 +1,4 @@
-# Zinc GPT
+# Zinc AI
 
 A conversational shopping assistant that helps users find and buy products across major US retailers, built on the [Zinc MCP server](https://www.zinc.com/docs/v2/mcp/overview).
 
