@@ -65,7 +65,7 @@ type SearchToolPart = Extract<ShopUIPart, { type: 'tool-search_products' }>
 type PrepareToolPart = Extract<ShopUIPart, { type: 'tool-prepare_order' }>
 
 const ZINC_URL = 'https://www.zinc.com'
-const REPO_URL = 'https://github.com/zincio/zinc-gpt'
+const REPO_URL = 'https://github.com/zincio/zinc-ai'
 const MCP_URL = 'https://www.zinc.com/docs/v2/mcp/overview'
 
 const PLACEHOLDER_LEAD = 'Buy anything, like'

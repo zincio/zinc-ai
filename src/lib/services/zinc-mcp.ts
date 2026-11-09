@@ -40,7 +40,7 @@ export async function callZincTool<T>(
   name: string,
   args: Record<string, unknown>
 ): Promise<ToolCallResult<T>> {
-  const client = new Client({ name: 'zinc-gpt', version: '0.1.0' })
+  const client = new Client({ name: 'zinc-ai', version: '0.1.0' })
   const transport = new StreamableHTTPClientTransport(new URL(ZINC_MCP_URL))
   const started = Date.now()
 

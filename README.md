@@ -2,8 +2,8 @@
 
 A conversational shopping assistant that helps users find and buy products across major US retailers, built on the [Zinc MCP server](https://www.zinc.com/docs/v2/mcp/overview).
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/zincio/zinc-gpt)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzincio%2Fzinc-gpt&env=ANTHROPIC_API_KEY&envDescription=API%20key%20required%20for%20the%20shopping%20assistant&project-name=zinc-gpt&repository-name=zinc-gpt)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/zincio/zinc-ai)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fzincio%2Fzinc-ai&env=ANTHROPIC_API_KEY&envDescription=API%20key%20required%20for%20the%20shopping%20assistant&project-name=zinc-ai&repository-name=zinc-ai)
 
 ## Features
 
@@ -50,8 +50,8 @@ Built with Next.js, the [Vercel AI SDK](https://ai-sdk.dev) (v7), and Claude Opu
 
 ```bash
 # Clone the repository
-git clone https://github.com/zincio/zinc-gpt.git
-cd zinc-gpt
+git clone https://github.com/zincio/zinc-ai.git
+cd zinc-ai
 
 # Install dependencies
 npm install
