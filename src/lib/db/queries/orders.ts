@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid'
 import { db, type OrderRow } from '..'
 import type { CartItem } from '@/lib/utils/validation'
 
@@ -15,7 +14,7 @@ export interface CreateOrderParams {
 }
 
 export function createOrder(params: CreateOrderParams): OrderRow {
-  const id = uuidv4()
+  const id = crypto.randomUUID()
   const stmt = db.prepare(`
     INSERT INTO orders (
       id, session_id, user_id, address_id, products,
