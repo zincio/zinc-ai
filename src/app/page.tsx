@@ -9,11 +9,20 @@ import { Streamdown } from 'streamdown'
 import {
   AlertCircleIcon,
   ArrowUpIcon,
+  ChevronDownIcon,
+  GithubIcon,
+  PlugIcon,
   RotateCwIcon,
   ShoppingBagIcon,
 } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 import { Skeleton } from '@/components/ui/skeleton'
 import { Empty, EmptyDescription, EmptyHeader, EmptyTitle } from '@/components/ui/empty'
 import {
@@ -55,7 +64,9 @@ type ShopUIPart = ShopUIMessage['parts'][number]
 type SearchToolPart = Extract<ShopUIPart, { type: 'tool-search_products' }>
 type PrepareToolPart = Extract<ShopUIPart, { type: 'tool-prepare_order' }>
 
+const ZINC_URL = 'https://www.zinc.com'
 const REPO_URL = 'https://github.com/zincio/zinc-gpt'
+const MCP_URL = 'https://www.zinc.com/docs/v2/mcp/overview'
 
 const PLACEHOLDER_LEAD = 'Buy anything, like'
 const PLACEHOLDER_EXAMPLES = [
@@ -225,15 +236,46 @@ function Chat({
   return (
     <main className="relative flex h-svh flex-col bg-background">
       <div className="pointer-events-none absolute inset-x-0 top-3 z-20 flex justify-center">
+        {/* The pill is a link to zinc.com; the chevron opens the developer
+            links (the repo and the MCP docs) without crowding the pill. */}
         <Badge
           variant="outline"
-          className="pointer-events-auto bg-background/90 text-muted-foreground shadow-sm backdrop-blur"
-          asChild
+          className="pointer-events-auto gap-0 bg-background/90 p-0 text-muted-foreground shadow-sm backdrop-blur"
         >
-          <a href={REPO_URL} target="_blank" rel="noopener noreferrer">
-            <ZincLogo className="text-foreground" />
-            Powered by Zinc MCP
+          <a
+            href={ZINC_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 py-0.5 pr-1.5 pl-2 transition-colors hover:text-foreground"
+          >
+            <ZincLogo className="size-3 text-foreground" />
+            Powered by Zinc
           </a>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                type="button"
+                aria-label="Developer links"
+                className="flex items-center self-stretch border-l pr-1.5 pl-1 transition-colors hover:text-foreground data-[state=open]:text-foreground"
+              >
+                <ChevronDownIcon className="size-3" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" sideOffset={6}>
+              <DropdownMenuItem asChild>
+                <a href={REPO_URL} target="_blank" rel="noopener noreferrer">
+                  <GithubIcon />
+                  Clone this repo
+                </a>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <a href={MCP_URL} target="_blank" rel="noopener noreferrer">
+                  <PlugIcon />
+                  Try the MCP
+                </a>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </Badge>
       </div>
 
@@ -280,7 +322,7 @@ function Chat({
                     <ThingsArc className="-mb-2" />
                     <EmptyHeader>
                       <EmptyTitle className="text-2xl font-semibold tracking-tight">
-                        <h1>Zinc GPT</h1>
+                        <h1>Zinc AI</h1>
                       </EmptyTitle>
                       <EmptyDescription>
                         Shop any retailer by chat. Ask for a product, compare picks, and
