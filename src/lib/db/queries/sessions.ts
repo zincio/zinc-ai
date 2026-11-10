@@ -1,10 +1,9 @@
-import { v4 as uuidv4 } from 'uuid'
 import { db, type SessionRow } from '..'
 import type { CartItem } from '@/lib/utils/validation'
 
 export type SessionState = 'browsing' | 'collecting_info' | 'checkout' | 'completed'
 
-export function createSession(userId?: string, id: string = uuidv4()): SessionRow {
+export function createSession(userId?: string, id: string = crypto.randomUUID()): SessionRow {
   const stmt = db.prepare(`
     INSERT INTO sessions (id, user_id, state, cart_data)
     VALUES (?, ?, 'browsing', '[]')

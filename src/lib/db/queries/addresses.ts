@@ -1,9 +1,8 @@
-import { v4 as uuidv4 } from 'uuid'
 import { db, type AddressRow } from '..'
 import type { Address } from '@/lib/utils/validation'
 
 export function createAddress(userId: string, address: Address): AddressRow {
-  const id = uuidv4()
+  const id = crypto.randomUUID()
   const stmt = db.prepare(`
     INSERT INTO addresses (
       id, user_id, first_name, last_name, address_line_1, address_line_2,

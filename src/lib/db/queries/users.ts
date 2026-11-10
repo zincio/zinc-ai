@@ -1,8 +1,7 @@
-import { v4 as uuidv4 } from 'uuid'
 import { db, type UserRow } from '..'
 
 export function createUser(email: string, name?: string): UserRow {
-  const id = uuidv4()
+  const id = crypto.randomUUID()
   const stmt = db.prepare(`
     INSERT INTO users (id, email, name)
     VALUES (?, ?, ?)
